@@ -9,10 +9,10 @@ def min_F1(P_b, NUMI_ijt, NUMIII_bjt, NUMVII_ibr, L1_ije, L2_ijt, L3_bjt, L4_bje
         lpSum(CBB_t_dict[t] * NUMI_ijt[i, j, t] for i in I for j in J for t in T) + 
         lpSum(CBB_t_dict[t]*NUMIII_bjt[b, j, t] for b in B for j in J for t in T) + 
         lpSum(CB_r_dict[r]*NUMVII_ibr[i, b, r]  for i in I for b in B for r in R) + 
-        lpSum(VCII_ije_dict[i, j ,e]*L1_ije[i, j, e] for i in I for j in J for e in E) + 
+        365*(lpSum(VCII_ije_dict[i, j ,e]*L1_ije[i, j, e] for i in I for j in J for e in E) + 
         lpSum(VCI_ijt_dict[i, j, t]*L2_ijt[i, j, t] for i in I for j in J for t in T) + 
         lpSum(VCIII_bjt_dict[b, j, t]*L3_bjt[b, j, t] for b in B for j in J for t in T) + 
-        lpSum(VCIV_bje_dict[b, j, e]*L4_bje[b, j, e] for b in B for j in J for e in E))
+        lpSum(VCIV_bje_dict[b, j, e]*L4_bje[b, j, e] for b in B for j in J for e in E)))
     return prob
 
 def min_F2(P_b, FLII_ije, FLI_ijt, FLIII_bjt, FLIV_bje, FLVI_ibs, FLVII_ibr, FLVIII_ibo):
